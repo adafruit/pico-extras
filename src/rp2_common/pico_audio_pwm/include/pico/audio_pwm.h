@@ -31,12 +31,12 @@ extern "C" {
 #endif
 #endif
 
-#if !(PICO_AUDIO_PWM_DMA_IRQ == 0 || PICO_AUDIO_PWM_DMA_IRQ == 1)
-#error PICO_AUDIO_PWM_DMA_IRQ must be 0 or 1
+#if !(PICO_AUDIO_PWM_DMA_IRQ >= 0 && PICO_AUDIO_PWM_DMA_IRQ < NUM_DMA_IRQS)
+#error PICO_AUDIO_PWM_DMA_IRQ must be from 0 to NUM_DMA_IRQS-1
 #endif
 
-#if !(PICO_AUDIO_PWM_PIO == 0 || PICO_AUDIO_PWM_PIO == 1)
-#error PICO_AUDIO_PWM_PIO ust be 0 or 1
+#if !(PICO_AUDIO_PWM_PIO >= 0 && PICO_AUDIO_PWM_PIO < NUM_PIOS)
+#error PICO_AUDIO_PWM_PIO must be from 0 to NUM_PIOS-1
 #endif
 
 #ifndef PICO_AUDIO_PWM_MAX_CHANNELS
